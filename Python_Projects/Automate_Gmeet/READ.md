@@ -1,5 +1,5 @@
 <img src="https://image.flaticon.com/icons/png/512/2913/2913992.png" align="right" width="200" align="right" />
-<h1 align="left"><b><abbr title = "Google Meet">G-meet</abbr> Automation Using Pyautogui</b></h1>
+<h1 align="left"><b><abbr title = "Google Meet">G-meet</abbr> Automation Using <a href = "https://pyautogui.readthedocs.io/en/latest/" target = "_self">PyAutoGUI</a></b></h1>
 
 ## <b><i>Follow The Simple Steps to Automate</i></b>
 
