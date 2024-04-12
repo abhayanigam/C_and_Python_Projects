@@ -49,19 +49,26 @@ def writeFile(arr, output_directory, output_file):
     output_path = output_directory + "/" + output_file
     with open(output_path, 'w') as f:
         f.write("Time Differences:\n")
+        total_seconds = 0
         for i in range(0, len(arr), 2):
             if i + 1 < len(arr):
                 time1 = time_to_seconds(arr[i])
                 time2 = time_to_seconds(arr[i+1])
                 difference_seconds = time2 - time1
+                total_seconds += difference_seconds
                 difference_time = format_time_difference(difference_seconds)
                 f.write(f"Time {i//2 + 1}: {difference_time}\n")
             else:
                 time_str = arr[i]
                 hours, minutes, seconds = map(int, time_str.split(':'))
                 seconds_total = hours * 3600 + minutes * 60 + seconds
+                total_seconds += seconds_total
                 difference_time = format_time_difference(seconds_total)
                 f.write(f"Time {i//2 + 1}: {difference_time}\n")
+
+        total_time = seconds_to_time(total_seconds)
+        total_hours, total_minutes, total_seconds = total_time.split(':')
+        f.write(f"\nTotal Time: {total_hours} hours, {total_minutes} minutes, {total_seconds} seconds\n")
 
 def time_difference(arr, output_directory):
     for i in range(0, len(arr), 2):
