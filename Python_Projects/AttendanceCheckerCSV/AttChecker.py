@@ -1,3 +1,9 @@
+# pip install customtkinter
+# pip install tk
+# pip install pyinstaller
+
+# pyinstaller --noconsole AttChecker.py
+
 import customtkinter as ctk 
 import tkinter.messagebox as tkmb 
 import tkinter as tk
