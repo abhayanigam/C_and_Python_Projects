@@ -21,13 +21,13 @@ def print_csv_with_index(file_path, searchKey, dateKey=None):
     writeTimeListToFile(timeList, "time_list.txt")
 
 def writeTimeListToFile(timeList, output_file):
-    output_path = r"C:\Users\abhay\Desktop\CSVRead\\" + output_file
+    output_path = r"C:\Users\abhay\Desktop\GitHubRepos\C_and_Python_Projects\Python_Projects\AttendanceCheckerCSV\\" + output_file
     with open(output_path, 'w') as f:
         for time in timeList:
             f.write(time + '\n')
 
 def writeFile(arr, output_file):
-    output_path = r"C:\Users\abhay\Desktop\CSVRead\\" + output_file
+    output_path = r"C:\Users\abhay\Desktop\GitHubRepos\C_and_Python_Projects\Python_Projects\AttendanceCheckerCSV\\" + output_file
     with open(output_path, 'w') as f:
         f.write("Time Differences:\n")
         total_seconds = 0
@@ -99,7 +99,7 @@ def format_time_difference(seconds):
             time_difference_str += "s"
     return time_difference_str
 
-file_path = r"C:\Users\abhay\Desktop\CSVRead\1111_attlog.csv"  # Replace with the actual path to your CSV file
+file_path = r"C:\Users\abhay\Desktop\GitHubRepos\C_and_Python_Projects\Python_Projects\AttendanceCheckerCSV\1111_attlog.csv"  # Replace with the actual path to your CSV file
 
 searchKey = str(input("Enter the Number to search : "))
 dateKey = str(input("Enter the Date to search (optional, press enter to skip): "))
