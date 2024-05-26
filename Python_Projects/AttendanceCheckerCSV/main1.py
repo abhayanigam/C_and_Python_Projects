@@ -1,6 +1,6 @@
 import csv
 
-def print_csv_with_index(file_path, searchKey, dateKey=None):
+def extract_times(file_path, searchKey, dateKey=None):
     timeList = []
     with open(file_path, 'r') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -9,7 +9,10 @@ def print_csv_with_index(file_path, searchKey, dateKey=None):
                 if dateKey is None or dateKey in row[0]:
                     time = row[0].split('\t')[1].split()[1]
                     timeList.append(time)
+    return timeList
 
+def print_csv_with_index(file_path, searchKey, dateKey=None):
+    timeList = extract_times(file_path, searchKey, dateKey)
     print("\nYou've Searched For: " + searchKey)
 
     time_difference(timeList)
@@ -51,7 +54,6 @@ def time_difference(arr):
 
     content = "\n".join(differences)
     writeFile(content, "time_differences.txt")
-    
 
 def time_to_seconds(time_str):
     hours, minutes, seconds = map(int, time_str.split(':'))
@@ -119,14 +121,7 @@ def main():
         if choice == '1':
             print_csv_with_index(file_path, searchKey, dateKey)
         elif choice == '2':
-            timeList = []
-            with open(file_path, 'r') as csv_file:
-                csv_reader = csv.reader(csv_file)
-                for index, row in enumerate(csv_reader):
-                    if searchKey in row[0]:
-                        if dateKey is None or dateKey in row[0]:
-                            time = row[0].split('\t')[1].split()[1]
-                            timeList.append(time)
+            timeList = extract_times(file_path, searchKey, dateKey)
             get_first_and_last_time(timeList)
         elif choice == '3':
             break
